@@ -25,7 +25,10 @@ $(call inherit-product, vendor/xiaomi/vince/vince-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+
+# Keyhandler
+PRODUCT_PACKAGES += \
+    org.pixelexperience.keyhandler
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
@@ -74,6 +77,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.print.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.print.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+
+# Google Permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/pixel_2017_exclusive.xml:system/etc/permissions/pixel_2017_exclusive.xml \
+    $(LOCAL_PATH)/permissions/pixel_2017.xml:system/etc/permissions/pixel_2017.xml \
+    $(LOCAL_PATH)/permissions/nexus.xml:system/etc/permissions/nexus.xml \
+    $(LOCAL_PATH)/permissions/google_build.xml:system/etc/permissions/google_build.xml \
+    $(LOCAL_PATH)/permissions/google-hiddenapi-package-whitelist.xml:system/etc/sysconfig/google-hiddenapi-package-whitelist.xml
 
 # ANT
 PRODUCT_PACKAGES += \

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2017 The aospOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,20 +16,32 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from vince device
 $(call inherit-product, device/xiaomi/vince/device.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+#all
+IS_GO_VERSION := true
+TARGET_INCLUDE_STOCK_ARCORE := true
 
-# Boot Animation
-TARGET_BOOTANIMATION_HALF_RES := true
+# On for(PE)
+#$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+#TARGET_BOOT_ANIMATION_RES := 1080
+#TARGET_GAPPS_ARCH := arm64
+#TARGET_MINIMAL_APPS := false
+#CUSTOM_BUILD_TYPE := OFFICIAL
 
-# Device identifier
+# On for(AEX)
+$(call inherit-product, vendor/aosp/common.mk)
+TARGET_BOOT_ANIMATION_RES := 2140
+EXTENDED_BUILD_TYPE := OFFICIAL
+
+# Inherit from custom vendor
+
+#Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := vince
-PRODUCT_NAME := lineage_vince
+PRODUCT_NAME := aosp_vince
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 5 Plus
 PRODUCT_MANUFACTURER := Xiaomi
@@ -39,7 +51,7 @@ BOARD_VENDOR := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="vince-user 8.1.0 OPM1.171019.019 V10.0.4.0.OEGMIFH release-keys"
+    PRODUCT_NAME="Xiaomi Redmi 5 Plus" \
+    DEVICE_MAINTAINERS="waiser"
 
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "xiaomi/vince/vince:8.1.0/OPM1.171019.019/V10.0.4.0.OEGMIFH:user/release-keys"
+
