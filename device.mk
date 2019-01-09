@@ -146,6 +146,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor \
     Gcam
 
+# Playground for GoogleCamera
+PRODUCT_PACKAGES += \
+    Playground	
+	
 # Consumerir
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
