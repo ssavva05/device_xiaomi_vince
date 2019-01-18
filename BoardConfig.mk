@@ -214,10 +214,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
-# Vendor init
-TARGET_INIT_VENDOR_LIB := libinit_vince
-TARGET_RECOVERY_DEVICE_MODULES := libinit_vince
-
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-12-05
 
