@@ -21,17 +21,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from vince device
 $(call inherit-product, device/xiaomi/vince/device.mk)
 
-#on -off vertion
+#all
 IS_GO_VERSION := true
-
-# Inherit from (PE)- stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_GAPPS_ARCH := arm64
-TARGET_MINIMAL_APPS := false
 TARGET_INCLUDE_STOCK_ARCORE := true
-CUSTOM_BUILD_TYPE := OFFICIAL
 
+# On for(PE)
+#$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+#TARGET_BOOT_ANIMATION_RES := 1080
+#TARGET_GAPPS_ARCH := arm64
+#TARGET_MINIMAL_APPS := false
+#CUSTOM_BUILD_TYPE := OFFICIAL
+
+# On for(AEX)
+$(call inherit-product, vendor/aosp/common.mk)
+TARGET_BOOT_ANIMATION_RES := 2140
+EXTENDED_BUILD_TYPE := OFFICIAL
 
 # Inherit from custom vendor
 
