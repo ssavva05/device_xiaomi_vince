@@ -27,8 +27,8 @@ LOCAL_STATIC_LIBRARIES := libbase libselinux
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := system/core/init
 LOCAL_CPPFLAGS := -Wall -DANDROID_TARGET=\"sdm845\"
-LOCAL_SRC_FILES := init_dipper.cpp
-LOCAL_MODULE := libinit_dipper
+LOCAL_SRC_FILES := init_vince.cpp
+LOCAL_MODULE := libinit_vince
 LOCAL_STATIC_LIBRARIES := \
     libbase
 
